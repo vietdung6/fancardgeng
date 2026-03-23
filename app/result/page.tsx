@@ -9,7 +9,7 @@ import { useFanCard, type FanCardData } from "@/components/fancard/useFanCard";
 export default function ResultPage() {
     const router = useRouter();
     const { renderCard, renderBackCard, downloadCard } = useFanCard();
-    
+
     const [cardData, setCardData] = useState<FanCardData | null>(null);
     const [frontPreviewUrl, setFrontPreviewUrl] = useState<string | null>(null);
     const [backPreviewUrl, setBackPreviewUrl] = useState<string | null>(null);
@@ -55,7 +55,7 @@ export default function ResultPage() {
 
     const handleShare = async (shareType: "front" | "back" | "both" = "front") => {
         if (!cardData) return;
-        
+
         setIsGenerating(true);
         setShareTarget(shareType);
         try {
@@ -82,7 +82,7 @@ export default function ResultPage() {
                 try {
                     await navigator.share({
                         title: `My Gen.G Fan Card${shareType === "both" ? "s" : ""}!`,
-                        text: "Check out my official Gen.G Fandom card! Generate yours at gengfandom.fun/fancard",
+                        text: "Check out my official Gen.G Fandom card! Generate yours at fancard.gengfandom.fun",
                         files: filesToShare
                     });
                 } catch (err) {
@@ -119,12 +119,12 @@ export default function ResultPage() {
                     style={{ backgroundImage: `url(${currentPreviewUrl})` }}
                 />
             </div>
-            
+
             <div className="relative z-10 max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-                
+
                 {/* Left: Final Card Preview */}
                 <div className="lg:col-span-7 flex flex-col items-center justify-center h-fit">
-                    
+
                     {!isPortrait && (
                         <div className="w-full flex justify-center mb-6">
                             {/* Toggle Switches */}
@@ -140,7 +140,7 @@ export default function ResultPage() {
                     )}
 
                     <AnimatePresence mode="wait">
-                        <motion.div 
+                        <motion.div
                             key={viewSide}
                             initial={{ opacity: 0, rotateY: viewSide === "front" ? -90 : 90, scale: 0.95 }}
                             animate={{ opacity: 1, rotateY: 0, scale: 1 }}
@@ -181,7 +181,7 @@ export default function ResultPage() {
 
                     <div className="flex flex-col gap-4 pt-4 border-t border-white/10">
                         {isPortrait ? (
-                            <button 
+                            <button
                                 disabled={isGenerating}
                                 onClick={() => handleDownload(false)}
                                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold via-[#e6c86a] to-gold hover:bg-right bg-[length:200%_auto] text-black font-extrabold py-3.5 px-4 rounded-xl transition-all shadow-lg disabled:opacity-50"
@@ -191,7 +191,7 @@ export default function ResultPage() {
                             </button>
                         ) : (
                             <div className="grid grid-cols-2 gap-3">
-                                <button 
+                                <button
                                     disabled={isGenerating}
                                     onClick={() => handleDownload(false)}
                                     className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-gold via-[#e6c86a] to-gold hover:bg-right bg-[length:200%_auto] text-black font-extrabold py-3.5 px-4 rounded-xl transition-all shadow-lg disabled:opacity-50"
@@ -199,8 +199,8 @@ export default function ResultPage() {
                                     {isGenerating ? <RefreshCw className="animate-spin w-4 h-4" /> : <Download className="w-4 h-4" />}
                                     <span className="tracking-widest uppercase text-xs">DL FRONT</span>
                                 </button>
-                                
-                                <button 
+
+                                <button
                                     disabled={isGenerating}
                                     onClick={() => handleDownload(true)}
                                     className="w-full flex items-center justify-center gap-2 bg-black border border-gold text-gold hover:bg-gold/10 font-bold py-3.5 px-4 rounded-xl transition-all disabled:opacity-50"
@@ -210,9 +210,9 @@ export default function ResultPage() {
                                 </button>
                             </div>
                         )}
-                        
+
                         {isPortrait ? (
-                            <button 
+                            <button
                                 disabled={isGenerating}
                                 onClick={() => handleShare("front")}
                                 className="w-full flex items-center justify-center gap-3 bg-[#111] border border-white/20 hover:border-white/50 text-white font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50 mt-2"
@@ -222,7 +222,7 @@ export default function ResultPage() {
                             </button>
                         ) : (
                             <div className="flex flex-col gap-2 mt-2">
-                                <button 
+                                <button
                                     disabled={isGenerating}
                                     onClick={() => handleShare("front")}
                                     className="w-full flex items-center justify-center gap-3 bg-[#111] border border-white/20 hover:border-white/50 text-white font-bold py-4 px-6 rounded-xl transition-all disabled:opacity-50"
@@ -230,7 +230,7 @@ export default function ResultPage() {
                                     {isGenerating && shareTarget === "front" ? <RefreshCw className="animate-spin w-5 h-5" /> : <Share2 className="w-5 h-5" />}
                                     <span className="tracking-[0.2em] uppercase text-sm">Share Front Only</span>
                                 </button>
-                                <button 
+                                <button
                                     disabled={isGenerating}
                                     onClick={() => handleShare("both")}
                                     className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-gold via-[#e6c86a] to-gold bg-[length:200%_auto] hover:bg-right text-black font-extrabold py-4 px-6 rounded-xl transition-all disabled:opacity-50"

@@ -299,7 +299,7 @@ export function useFanCard() {
             ctx.font = "11px 'Inter', sans-serif";
             ctx.letterSpacing = "1px";
             ctx.textAlign = "center";
-            ctx.fillText("Generate yours at gengfandom.fun/fancard", CW / 2, CH - 30);
+            ctx.fillText("Generate yours at fancard.gengfandom.fun", CW / 2, CH - 30);
             ctx.restore();
 
             // Custom QR Code (Portrait Front)
@@ -321,7 +321,7 @@ export function useFanCard() {
                 ctx.fillStyle = GOLD_COLOR;
                 rr(ctx, cx, cy, cw, ch, 8);
                 ctx.fill();
-                
+
                 ctx.strokeStyle = "rgba(0,0,0,0.5)";
                 ctx.lineWidth = 1;
                 ctx.beginPath();
@@ -330,7 +330,7 @@ export function useFanCard() {
                 ctx.moveTo(cx, cy + 14); ctx.lineTo(cx + cw, cy + 14);
                 ctx.moveTo(cx, cy + 30); ctx.lineTo(cx + cw, cy + 30);
                 ctx.stroke();
-                
+
                 rr(ctx, cx + 13, cy + 10, cw - 26, ch - 20, 3);
                 ctx.stroke();
                 ctx.restore();
@@ -341,16 +341,16 @@ export function useFanCard() {
                 ctx.lineWidth = 2.5;
                 ctx.lineCap = "round";
                 ctx.beginPath();
-                ctx.arc(cx + 90, cy + 22, 10, -Math.PI/4, Math.PI/4);
+                ctx.arc(cx + 90, cy + 22, 10, -Math.PI / 4, Math.PI / 4);
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.arc(cx + 90, cy + 22, 16, -Math.PI/4, Math.PI/4);
+                ctx.arc(cx + 90, cy + 22, 16, -Math.PI / 4, Math.PI / 4);
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.arc(cx + 90, cy + 22, 22, -Math.PI/4, Math.PI/4);
+                ctx.arc(cx + 90, cy + 22, 22, -Math.PI / 4, Math.PI / 4);
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.arc(cx + 90, cy + 22, 28, -Math.PI/4, Math.PI/4);
+                ctx.arc(cx + 90, cy + 22, 28, -Math.PI / 4, Math.PI / 4);
                 ctx.stroke();
                 ctx.restore();
 
@@ -358,14 +358,14 @@ export function useFanCard() {
                 let cardNum = data.bankCardNumber || "";
                 if (!cardNum || cardNum.trim() === "") {
                     const baseStr = (data.memberId || "0000000000").replace(/[^a-zA-Z0-9]/g, '').padEnd(12, '0').toUpperCase();
-                    cardNum = `5241 ${baseStr.substring(0,4)} ${baseStr.substring(4,8)} ${baseStr.substring(8,12)}`;
+                    cardNum = `5241 ${baseStr.substring(0, 4)} ${baseStr.substring(4, 8)} ${baseStr.substring(8, 12)}`;
                 } else {
                     // Try to format it visually nice if it's 16 raw digits
                     if (cardNum.length === 16 && !cardNum.includes(" ")) {
                         cardNum = cardNum.replace(/(.{4})/g, '$1 ').trim();
                     }
                 }
-                
+
                 ctx.fillStyle = "#FFFFFF";
                 // Glow effect for embossed look
                 ctx.shadowColor = "rgba(0,0,0,0.8)";
@@ -393,7 +393,7 @@ export function useFanCard() {
                 ctx.shadowBlur = 4;
                 ctx.shadowOffsetY = 1;
                 ctx.fillText(data.displayName.toUpperCase(), 50, 350);
-                
+
                 // Member Title / Custom Note below
                 ctx.font = "14px 'Inter', sans-serif";
                 ctx.fillStyle = GOLD_COLOR;
@@ -416,14 +416,14 @@ export function useFanCard() {
                     try {
                         const avatarImg = await loadImg(data.avatarUrl);
                         ctx.clip(); // Clip to rounded rectangle
-                        
+
                         // Calculate Aspect Fill
                         const scale = Math.max(avW / avatarImg.width, avH / avatarImg.height);
                         const drawW = avatarImg.width * scale;
                         const drawH = avatarImg.height * scale;
                         const drawX = avX + (avW - drawW) / 2;
                         const drawY = avY + (avH - drawH) / 2;
-                        
+
                         ctx.drawImage(avatarImg, drawX, drawY, drawW, drawH);
                     } catch (e) {
                         console.error("Avatar load error", e);
@@ -432,7 +432,7 @@ export function useFanCard() {
                     ctx.fillStyle = "rgba(255,255,255,0.2)";
                     ctx.font = "14px 'Inter', sans-serif";
                     ctx.textAlign = "center";
-                    ctx.fillText("NO PHOTO", avX + avW/2, avY + avH/2);
+                    ctx.fillText("NO PHOTO", avX + avW / 2, avY + avH / 2);
                 }
                 ctx.restore();
 
@@ -546,7 +546,7 @@ export function useFanCard() {
             ctx.font = "10px 'Inter', sans-serif";
             ctx.letterSpacing = "1px";
             ctx.textAlign = "right";
-            ctx.fillText("Generate yours at gengfandom.fun/fancard", CW - 40, 35);
+            ctx.fillText("Generate yours at fancard.gengfandom.fun", CW - 40, 35);
             ctx.restore();
         }
 
@@ -718,10 +718,10 @@ export function useFanCard() {
 
             // Back Side Generic QR Code
             try {
-                const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("https://gengfandom.fun/fancard")}&color=000000&bgcolor=ffffff&qzone=1`;
+                const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("https://fancard.gengfandom.fun")}&color=000000&bgcolor=ffffff&qzone=1`;
                 const qrImg = await loadImg(qrUrl);
                 const qrSize = isPortrait ? 60 : 70;
-                const qrX = isPortrait ? (CW - qrSize)/2 : CW - qrSize - 40;
+                const qrX = isPortrait ? (CW - qrSize) / 2 : CW - qrSize - 40;
                 const qrY = isPortrait ? CH - 130 : CH - qrSize - 40;
                 ctx.drawImage(qrImg, qrX, qrY, qrSize, qrSize);
             } catch { }
@@ -729,7 +729,7 @@ export function useFanCard() {
         } else {
             // ================= CLASSIC MEMBER CARD BACK =================
             // Centered elegant typography without magnetic strip
-            
+
             // Large Watermark Center
             ctx.fillStyle = "rgba(212,175,55,0.05)";
             ctx.font = "bold 110px 'Oswald', sans-serif";
@@ -770,7 +770,7 @@ export function useFanCard() {
 
             // Center QR Code
             try {
-                const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("https://gengfandom.fun/fancard")}&color=000000&bgcolor=ffffff&qzone=1`;
+                const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent("https://fancard.gengfandom.fun")}&color=000000&bgcolor=ffffff&qzone=1`;
                 const qrImg = await loadImg(qrUrl);
                 const qrSize = 90;
                 ctx.drawImage(qrImg, CW / 2 - qrSize / 2, CH - 160, qrSize, qrSize);
