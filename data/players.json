@@ -8,7 +8,11 @@
       "flag": "🇰🇷",
       "featured": false,
       "animalIcon": "🐸",
-      "champions": ["K'Sante", "Aatrox", "Gwen"],
+      "champions": [
+        "K'Sante",
+        "Aatrox",
+        "Gwen"
+      ],
       "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1769089994377_LCK_GEN_Kiin_F.PNG",
       "signature": "/images/sign/Kiin.png",
       "socials": {
@@ -24,7 +28,11 @@
       "flag": "🇰🇷",
       "featured": false,
       "animalIcon": "🐻‍❄️",
-      "champions": ["Nidalee", "Lee Sin", "Graves"],
+      "champions": [
+        "Nidalee",
+        "Lee Sin",
+        "Graves"
+      ],
       "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1769090003713_LCK_GEN_Canyon_F.PNG",
       "signature": "/images/sign/Canyon.png",
       "socials": {
@@ -39,7 +47,11 @@
       "flag": "🇰🇷",
       "featured": true,
       "animalIcon": "🐱",
-      "champions": ["Cassiopeia", "Galio", "Taliyah"],
+      "champions": [
+        "Cassiopeia",
+        "Galio",
+        "Taliyah"
+      ],
       "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1769089983865_LCK_GEN_Chovy_F.PNG",
       "signature": "/images/sign/Chovy.png",
       "socials": {
@@ -55,7 +67,11 @@
       "flag": "🇰🇷",
       "featured": true,
       "animalIcon": "🐶",
-      "champions": ["Lucian", "Ezreal", "Zeri"],
+      "champions": [
+        "Lucian",
+        "Ezreal",
+        "Zeri"
+      ],
       "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1769089998972_LCK_GEN_Ruler_F.PNG",
       "signature": "/images/sign/Ruler.png",
       "socials": {
@@ -71,7 +87,11 @@
       "flag": "🇰🇷",
       "featured": false,
       "animalIcon": "🐰",
-      "champions": ["Nautilus", "Alistar", "Rakan"],
+      "champions": [
+        "Nautilus",
+        "Alistar",
+        "Rakan"
+      ],
       "image": "https://am-a.akamaihd.net/image?resize=375:&f=http%3A%2F%2Fstatic.lolesports.com%2Fplayers%2F1769089989727_LCK_GEN_Duro_F.PNG",
       "signature": "/images/sign/Duro.png",
       "socials": {
@@ -86,8 +106,13 @@
       "roleKey": "mascot",
       "flag": "🎮",
       "featured": false,
-      "favorites": ["Xách nước", "Bổ Cam", "Content Creator"],
-      "image": "/images/genrang_avt_rose.png"
+      "favorites": [
+        "Xách nước",
+        "Bổ Cam",
+        "Content Creator"
+      ],
+      "image": "/images/Genrang.png",
+      "signature": "/images/sign/genrang.png"
     }
   ],
   "cl_roster": [

@@ -11,7 +11,7 @@ interface FanCardGeneratorProps {
     memberId?: string;
 }
 
-const PLAYERS = playersData.roster.filter((p) => p.roleKey !== "mascot");
+const PLAYERS = playersData.roster;
 
 const ROLE_LABELS: Record<string, string> = {
     top: "TOP",
@@ -19,6 +19,7 @@ const ROLE_LABELS: Record<string, string> = {
     mid: "MID",
     adc: "BOT",
     support: "SUPPORT",
+    mascot: "MASCOT",
 };
 
 export default function FanCardGenerator({
